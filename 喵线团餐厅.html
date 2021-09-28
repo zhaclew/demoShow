@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喵线团饭馆</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/font.css">
+</head>
+<style>
+    /* @media (max-width: 767.98px) {
+        .txt{
+           display: none;
+        }
+    } */
+    @media (max-width: 767.98px) {
+        .text-md-white {
+            color: white;
+        }
+    }
+
+    @media (min-width: 767.98px) {
+        .www {
+            width: 125%;
+        }
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .bg-img {
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+
+    .content,
+    .content-a,
+    .content-b,
+    .content-c {
+        position: relative;
+        z-index: 1;
+    }
+
+    .content img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .content-a::after {
+        content: "";
+        background-image: url(./images/bg.jpg);
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: blur(20px);
+    }
+
+    .content-b::after {
+        content: "";
+        background-image: url(./images/bg2.jpg);
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: blur(20px);
+    }
+
+    .content-c::after {
+        content: "";
+        background-image: url(./images/bg3.jpg);
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        filter: blur(20px);
+    }
+
+    .txt {
+        position: absolute;
+        left: 50%;
+        bottom: 6%;
+        transform: translateX(-50%);
+        color: white;
+        padding: 20px 50px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <nav class="bg-secondary">
+        <div class="container text-right">
+            <a href="#" class="icon text-light"></a>
+            <a href="#" class="icon text-light ml-1"></a>
+        </div>
+    </nav>
+    <header class="bg-dark">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">喵线团饭馆</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            美味菜单
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">喵爪子</a>
+                            <a class="dropdown-item" href="#">喵尾巴</a>
+                            <a class="dropdown-item" href="#">喵喵拳</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-outline-primary  mr-2" type="button" data-toggle="modal"
+                        data-target="#login">登入</button>
+                    <button class="btn bg-primary text-light" data-toggle="modal" data-target="#signUp"
+                        style="width: 100px;" type="button" name="signUp">注册</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active w-100 content-a">
+                <img src="./images/bg.jpg" class="d-block mx-auto" style="height: 50vh;" alt="...">
+                <div class="txt d-md-block d-none">
+                    <h5>地下城与勇士</h5>
+                    <p class="m-0">风一样的勇者啊，开启你的冒险之旅吧</p>
+                </div>
+            </div>
+            <div class="carousel-item  w-100 content-b">
+                <img src="./images/bg2.jpg" class="d-block mx-auto" style="height: 50vh;" alt="...">
+                <div class="txt d-md-block d-none">
+                    <h5>城镇休息区</h5>
+                    <p class="m-0">冒险家大人，请此休养生息吧</p>
+                </div>
+            </div>
+            <div class="carousel-item  w-100 content-c">
+                <img src="./images/bg3.jpg" class="d-block mx-auto" style="height: 50vh;" alt="...">
+                <div class="txt d-md-block d-none">
+                    <h5>酒馆女老板</h5>
+                    <p class="m-0">美食与酒与美人，勇士你更喜欢哪一个</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon ml-auto" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon mr-auto" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <section class="bg-info">
+        <div class="container">
+            <div class="row text-light py-5">
+                <div class="col-md-4">
+                    <p class="icon icon-spoon-knife" style="font-size: 35px;"></p>
+                    <h5>忘却不了的苹果香</h5>
+                    <p class="m-md-0">没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="icon icon-mug" style="font-size: 35px;"></p>
+                    <h5>沉积在心中的涟漪</h5>
+                    <p class="m-md-0">
+                        但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。抚摸着你的颜面，至少你不能完全抱怨荆棘，假如我在万里外接到你的死耗，小马，装一个农夫，可以一哩我了giao</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="icon icon-bubbles2" style="font-size: 35px;"></p>
+                    <h5>隐约察觉的对话</h5>
+                    <p class="m-md-0">
+                        每当夜幕降临，你都会和那个我不认识的他聊的花枝乱颤，我不敢去面对你，也不敢去触碰它。只能每晚每晚当做毫不知情那样，只能像是堕入黑暗的潮水那样，深深地，深深地假装沉睡。。。。。。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid text-md-white  bg-light py-3" style="position: relative;">
+        <div class="row">
+            <div class="col-md-5" style="
+            background-image: url(./images/bg2.jpg);
+            background-size: cover;
+            background-position: center;
+            position: absolute;top: 0;bottom:0;"></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7">
+                    <h5>隐约察觉的对话</h5>
+                    <p class="m-md-0">
+                        每当夜幕降临，你都会和那个我不认识的他聊的花枝乱颤，我不敢去面对你，也不敢去触碰它。只能每晚每晚当做毫不知情那样，只能像是堕入黑暗的潮水那样，深深地，深深地假装沉睡。。。。。。</p>
+                    <a href="#" class="btn btn-outline-info my-3">了解更多</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>沉积在心中的涟漪</h5>
+                            <p class="m-md-0">
+                                但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。抚摸着你的颜面，至少你不能完全抱怨荆棘，假如我在万里外接到你的死耗，小马，装一个农夫，可以一哩我了giao
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>谁的幸福又不是幸福呢</h5>
+                            <p class="m-md-0">
+                                每当夜幕降临，你都会和那个我不认识的他聊的花枝乱颤，我不敢去面对你，也不敢去触碰它。只能每晚每晚当做毫不知情那样，只能像是堕入黑暗的潮水那样，深深地，深深地假装沉睡。。。。。。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <h2 class="text-center my-5">如何这么美味</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="icon icon-apple pb-5 pt-1 float-left mr-3 text-info" style="font-size: 45px;"></p>
+                <h5>忘却不了的苹果香</h5>
+                <p class="m-md-0">没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。</p>
+            </div>
+            <div class="col-md-6">
+                <p class="icon icon-vimeo2 pb-5 pt-1 float-left mr-3 text-info" style="font-size: 45px;"></p>
+                <h5>忘却不了的苹果香</h5>
+                <p class="m-md-0">没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。</p>
+            </div>
+        </div>
+        <div class="row my-md-5">
+            <div class="col-md-6">
+                <p class="icon icon-leaf pb-5 pt-1 float-left mr-3 text-info" style="font-size: 45px;"></p>
+                <h5>忘却不了的苹果香</h5>
+                <p class="m-md-0">没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。</p>
+            </div>
+            <div class="col-md-6">
+                <p class="icon icon-make-group pt-1 pb-5 float-left mr-3 text-info" style="font-size: 45px;"></p>
+                <h5>忘却不了的苹果香</h5>
+                <p class="m-md-0">没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。</p>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid bg-light py-5" style="position: relative;">
+        <div class="row">
+            <div class="col-md-5" style="
+            position: absolute;top: 0;bottom: 0;right: 0;
+            background-image: url(./images/bg3.jpg);
+            background-size: cover;
+            background-position: center;
+            "></div>
+        </div>
+        <div class="container text-md-white">
+            <div class="row">
+                <div class="col-md-7">
+                    <h5 class="font-weight-bold">让快乐持续发生</h5>
+                    <p class="m-md-0">在每个机会里，但现在这些亚洲父母来了，怀疑自己是否重要，到底你自己的感觉是什么。</p>
+                    <div class="row mt-3 mb-3">
+                        <div class="col-md-4">
+                            不吃饱哪有力气减肥啊？
+                        </div>
+                        <div class="col-md-8">
+                            但请相信我。可是已经晚了......
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            爱你，爱你，我是真的爱你啊
+                        </div>
+                        <div class="col-md-8">
+                            但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。抚摸着你的颜面，至少你不能完全抱怨荆棘，假如我在万里外接到你的死耗，小马，装一个农夫，可以一哩我了giao
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            是男人就下一百层
+                        </div>
+                        <div class="col-md-8">
+                            没有遗憾的爱过、支持过他们，在商言商，他们总是假设：喔，但请相信我。可是已经晚了......请你以后不要在我面前说英文了。
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            假如你是我的初见...
+                        </div>
+                        <div class="col-md-8">
+                            没有遗憾的爱过、支持过他们，但请相信我。可是已经晚了......
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid bg-light">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-md-6">
+                    <iframe src="./map.html" width="100%" height="450" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <form>
+                        <div class="form-group">
+                            <label for="Name">姓名*</label>
+                            <input type="text" class="form-control" id="exampleInputName" placeholder="请输入姓名" required
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="Phone">请输入电话号码*</label>
+                            <input type="text" class="form-control" id="exampleInputPhone" placeholder="请输入电话号码"
+                                required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="Email1">请输入 Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                placeholder="name@example.com" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="Number">请输入人数*</label>
+                            <input type="number" class="form-control" id="exampleInputNumber" placeholder="2" max="100"
+                                min="2" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="Food">是否需要外带</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                    value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    需要
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                    value="option2">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    不需要
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-secondary mr-1">取消</button>
+                            <button type="submit" class="btn btn-primary">送出</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 bg-img p-5 text-light" style="background-image: url(./images/bg.jpg);">
+                <div class="row">
+                    <div class="col-md-10">
+                        <span>加入我们</span>
+                        <h5>你好，我是秦始皇，我现在被警察抓了需要你立刻V我50元，等我出来后封你做定安大将军</h5>
+                        <p>但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。抚摸着你的颜面，至少你不能完全抱怨荆棘，假如我在万里外接到你的死耗，小马，装一个农夫，可以一哩我了giao，但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。
+                        </p>
+                        <a href="#" class="btn btn-outline-warning">加入我们</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 bg-img p-5 text-light" style="background-image: url(./images/bg3.jpg);">
+                <div class="row">
+                    <div class="col-md-10">
+                        <span>品尝佳肴</span>
+                        <h5>没有遗憾的爱过、支持过他们，但请相信我。可是已经晚了......</h5>
+                        <p>但是当有机会时，但因为你是诚实且对此公平的，雪季可以延续4个月甚至5个月。抚摸着你的颜面，至少你不能完全抱怨荆棘，假如我在万里外接到你的死耗，小马，装一个农夫，可以一哩我了giao.每当夜幕降临，你都会和那个我不认识的他聊的花枝乱颤，我不敢去面对你，也不敢去触碰它。只能每晚每晚当做毫不知情那样，只能像是堕入黑暗的潮水那样，深深地，深深地假装沉睡。。。。。。
+                        </p>
+                        <a href="#" class="btn btn-outline-warning">品尝佳肴</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer class="bg-light container-fluid py-4">
+        <div class="container">
+            <p><span class="icon icon-tongue"></span> Copright 2021 喵线团 <a href="#">GitHub Facebook About</a></p>
+        </div>
+    </footer>
+
+    <section>
+        <!-- Modal -->
+        <!-- login 登录-->
+        <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title text-light" id="exampleModalLabel">登入服务</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="get" action="">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email" name="email" placeholder="Enter email">
+                                <small class="text-secondary">我们绝不会随意将你的 email 给予第三者</small>
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input class="form-control" type="password" name="password" placeholder="Password">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="" value="true">
+                                <label class="form-check-label">记住账号</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="mr-auto" data-dismiss="modal" data-toggle="modal"
+                            data-target="#signUp" style="text-decoration: underline;">还没有账号了？</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">登入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- signUp 注册 -->
+        <div class="modal fade" id="signUp" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content www">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title text-light">注册服务</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container p-0">
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <div class="readme">
+                                        <h5>注册喵线团餐厅</h5>
+                                        <p>How can I ever forget the beautiful campus in Africa? The grounds were
+                                            covered with dark green grass through which stretched a straight white stone
+                                            path .</p>
+                                        <p>The grounds were covered with dark green grass through which stretched a
+                                            straight white stone path .</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form method="get" action="">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" type="email" name="email"
+                                                placeholder="Enter email">
+                                            <small class="text-secondary">我们绝不会随意将你的 email 给予第三者</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>密码</label>
+                                            <input class="form-control" type="password" name="password"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>确认密码</label>
+                                            <input class="form-control" type="password" name="repassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="" value="true">
+                                            <label class="form-check-label">同意条款</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#login" class="mr-auto"
+                            style="text-decoration: underline;">已经有了账号</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">登入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script>
+        // $(document).ready(
+        //     $('#login').on('hidden.bs.modal', function () {
+        //         $('body').addClass('modal-open')
+        //     })
+        // )
+    </script>
+</body>
+
+</html>
